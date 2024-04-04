@@ -65,7 +65,7 @@ public class PointTester {
 				System.out.println("Enter the 2 Index Of Points :: ");
 				int index2 = sc.nextInt();
 				if(index1 != index2) {
-				if ((-1 < index1 && index1 < points.length - 1) && (-1 < index2 && index2 < points.length)) {
+				if ((-1 < index1 && index1 < points.length) && (-1 < index2 && index2 < points.length)) {
 					if (points[index1].equals(points[index2]))
 						System.out.println(points[index1].toString() + " & " + points[index2].toString()
 								+ " are located at the same position..");

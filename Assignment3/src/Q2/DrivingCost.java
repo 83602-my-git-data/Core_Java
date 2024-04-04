@@ -21,7 +21,7 @@ public class DrivingCost {
 	}
 
 	public double dailyDrivingCost() {
-		return parkingFees + tolls + (totalMiles * milesPerGallon * costPerGallon);
+		return parkingFees + tolls + (totalMiles / milesPerGallon * costPerGallon);
 	}
 	
 	
