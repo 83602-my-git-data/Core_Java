@@ -1,5 +1,7 @@
 package Q1;
 
+import java.util.Scanner;
+
 public class Invoice {
     private String partNumber;
 	private String partDescription;
@@ -17,7 +19,6 @@ public class Invoice {
 		
 		this.price = price;
 	}
-	
 	
 	public double calculatesAmount() {
 		return price*quantity;

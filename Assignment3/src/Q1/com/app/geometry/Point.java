@@ -1,19 +1,19 @@
-package Q2.com.app.geometry;
+package Q1.com.app.geometry;
 
-public class Point2D {
+public class Point {
    private int x;
    private int y;
      
-   public Point2D() {
+   public Point() {
 	   this(1,1);
    }
    
-    public Point2D(int x, int y) {
+    public Point(int x, int y) {
      	super();
 	    this.x = x;
 	    this.y = y;
 }   //p1.calulateDistance(p2)
-    public double calculateDistance(Point2D p)
+    public double calculateDistance(Point p)
     {
     	//√((x2 – x1)² + (y2 – y1)²)
     	return (Math.sqrt(Math.pow((Math.abs(p.x-this.x)), 2)+Math.pow((Math.abs(p.y-this.y)), 2)));
@@ -22,7 +22,7 @@ public class Point2D {
 	@Override
 	public boolean equals(Object obj) {
 		
-		Point2D other = (Point2D) obj;
+		Point other = (Point) obj;
 		return x == other.x && y == other.y;
 	}
 
