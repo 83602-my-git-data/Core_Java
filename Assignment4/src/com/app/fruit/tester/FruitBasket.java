@@ -47,8 +47,8 @@ public class FruitBasket {
 					fruitsBasket[count] = new Mango();
 					System.out.println("Mango is Added.");
 					System.out.println("Enter the 1 if Fruit is Fresh else 0.");
-					if(sc.nextInt()==1)
-						 fruitsBasket[count].setFresh(true);
+					if (sc.nextInt() == 1)
+						fruitsBasket[count].setFresh(true);
 					count++;
 				} else
 					System.out.println("Basket is Fulled.");
@@ -59,8 +59,8 @@ public class FruitBasket {
 					fruitsBasket[count] = new Orange();
 					System.out.println("Orange is Added.");
 					System.out.println("Enter the 1 if Fruit is Fresh else 0.");
-					if(sc.nextInt()==1)
-						 fruitsBasket[count].setFresh(true);
+					if (sc.nextInt() == 1)
+						fruitsBasket[count].setFresh(true);
 					count++;
 				} else
 					System.out.println("Basket is Fulled.");
@@ -71,8 +71,8 @@ public class FruitBasket {
 					fruitsBasket[count] = new Apple();
 					System.out.println("Apple is Added.");
 					System.out.println("Enter the 1 if Fruit is Fresh else 0.");
-					if(sc.nextInt()==1)
-						 fruitsBasket[count].setFresh(true);
+					if (sc.nextInt() == 1)
+						fruitsBasket[count].setFresh(true);
 					count++;
 				} else
 					System.out.println("Basket is Fulled.");
