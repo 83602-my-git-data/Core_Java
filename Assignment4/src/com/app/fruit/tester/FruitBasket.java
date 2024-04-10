@@ -110,12 +110,18 @@ public class FruitBasket {
 				break;
 			case 7:// 7. Display tastes of all stale(not fresh) fruits in the basket.
 			{
+				boolean flag = true;
 				for (Fruit f : fruitsBasket) {
 					if (f == null)
 						break;
-					if (!f.isFresh()) {
+					if (!f.isFresh()) {//true === fresh false==not fresh
 						System.out.println(f.toString() + "  Taste is ::" + f.taste());
+						flag = false;
 					}
+				}
+				
+				if(flag) {
+					System.out.println("all are fresh fruits.");
 				}
 			}
 				break;

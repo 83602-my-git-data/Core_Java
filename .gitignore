@@ -7,6 +7,7 @@ bin
 *.project
 # Log file
 *.log
+*.zip
 
 # BlueJ files
 *.ctxt
