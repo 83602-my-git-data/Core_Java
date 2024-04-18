@@ -8,14 +8,14 @@ public class StringBuilderAndBufferDiff {
     //create two threads that modifies the same string builder and Buffer instance
     Thread t1 = new Thread(() -> {
        for(int i=0;i<1000;i++){
-        // sb1.append("a");
+         sb1.append("a");
          sb2.append("a");
        }
     });
 
     Thread t2 = new Thread(() ->{
        for(int i=0;i<1000;i++){
-        // sb1.append("b");
+         sb1.append("b");
          sb2.append("b");
        }
     });
@@ -31,7 +31,7 @@ public class StringBuilderAndBufferDiff {
       e.printStackTrace();
     }
     //print the final string builder and buffer result
-   // System.out.println("String Builder: "+sb1.toString().length());
+    System.out.println("String Builder: "+sb1.toString().length());
     System.out.println("String Buffer: "+sb2.toString().length());
   }
 }

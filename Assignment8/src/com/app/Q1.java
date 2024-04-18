@@ -40,6 +40,8 @@ public class Q1 {
 		System.out.println("Before Sorting :: ");
 		System.out.println(Arrays.toString(arr));
 		
+		
+		//using anonomous
 		selectionSort(arr, new Comparator<Integer>() {
 
 			@Override
@@ -47,6 +49,9 @@ public class Q1 {
 				return o1-o2;
 			}
 		} );
+		
+		//using lamda expression
+		selectionSort(arr, (a, b) -> a - b);
 	
 		System.out.println("After Sorting :: ");
 		System.out.println(Arrays.toString(arr));
@@ -55,13 +60,16 @@ public class Q1 {
 		System.out.println("Before Sorting Student :: ");
 		System.out.println(Arrays.toString(arr1));
 		
-		selectionSort(arr1, new Comparator<Student>() {
-
-			@Override
-			public int compare(Student o1, Student o2) {
-				return o1.getName().compareTo(o2.getName());
-			}
-		} );
+//		selectionSort(arr1, new Comparator<Student>() {
+//
+//			@Override
+//			public int compare(Student o1, Student o2) {
+//				return o1.getName().compareTo(o2.getName());
+//			}
+//		} );
+		
+		//lamda expression
+		selectionSort(arr1, (a, b) -> a.getName().compareTo(b.getName()));
 	
 		System.out.println("After Sorting :: ");
 		System.out.println(Arrays.toString(arr1));
