@@ -1,7 +1,7 @@
-import java.io.Serializable;
+package com.app.entity;
 import java.util.Objects;
 
-public class Mobile implements Serializable {
+public class Mobile {
 	private String model;
 	private String Company;
 	private double price;

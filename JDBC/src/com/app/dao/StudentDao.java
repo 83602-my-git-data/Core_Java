@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.app.entity.Mobile;
 import com.app.entity.Student;
 import com.app.utils.DbUtil;
 
@@ -36,7 +37,7 @@ public class StudentDao implements AutoCloseable {
 	}
 
 	public List<Student> allStudent() throws SQLException {
-		query = "select * from student";
+		query = "select * from student order by marks desc";
 		// sqlinjection
 		List<Student> list = new ArrayList<>();
 
@@ -87,7 +88,27 @@ public class StudentDao implements AutoCloseable {
 			return null;
 		}
 	}
+	
+	public void insertAllMobile(List<Mobile> mb) throws SQLException {
+		
+		query ="insert into Mobile(model, company, price) values(?,?,?)";
+		try (PreparedStatement stmt = connection.prepareStatement(query)) {
+			int i =0;
+			for(Mobile m :mb) {
+			stmt.setString(1, m.getModel());
+			stmt.setString(2, m.getCompany());
+			stmt.setDouble(3, m.getPrice());
+			 i = stmt.executeUpdate();
+			}
+			if (i > 0)
+				System.out.println("insert is done.");
+			else
+				System.out.println("insert is not done.");
+		}
+		
+	}
 
+	
 	@Override
 	public void close() throws Exception {
 		connection.close();
