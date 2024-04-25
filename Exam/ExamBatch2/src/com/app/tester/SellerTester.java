@@ -42,7 +42,6 @@ public class SellerTester {
 					else
 						System.out.println("seller is not added.");
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -57,7 +56,6 @@ public class SellerTester {
 					else
 						System.out.println("login email and password is wrong.");
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -79,7 +77,6 @@ public class SellerTester {
 					} else
 						System.out.println("seller is not login.");
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

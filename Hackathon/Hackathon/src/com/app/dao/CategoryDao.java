@@ -12,7 +12,7 @@ import com.app.pojos.Blogs;
 import com.app.pojos.Categories;
 import com.app.utils.DbUtils;
 
-public class CategoryDao {
+public class CategoryDao implements AutoCloseable {
 
 	private Connection connection;
 	private String query;
@@ -21,19 +21,15 @@ public class CategoryDao {
 		this.connection = DbUtils.getConnection();
 	}
 
-	// 1. Add Category
 	public int addCategory(Categories b) throws SQLException {
 		query = "insert into categories(title,description) values(?,?);";
-		int i = 0;
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setString(1, b.getTitle());
 			stmt.setString(2, b.getDescriptions());
-			i = stmt.executeUpdate();
+			return stmt.executeUpdate();
 		}
-		return i;
 	}
 
-	// 2.show category
 	public List<Categories> showCategories() throws SQLException {
 		query = "select * from categories";
 		List<Categories> list = new ArrayList<>();
@@ -48,14 +44,19 @@ public class CategoryDao {
 	}
 	public String Categories(int id) throws SQLException {
 		query = "select * from categories where id = ?";
-	    String list = null;
+		String name = null;
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				list = rs.getString(2);
-			}
+			while(rs.next())
+				name = rs.getString(2);
 		}
-		return list;
+		return name;
+	}
+
+	@Override
+	public void close() throws Exception {
+		connection.close();
+		
 	}
 }

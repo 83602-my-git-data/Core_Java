@@ -20,7 +20,6 @@ public class UserDao implements AutoCloseable {
 	}
 
 	public int insertUsers(User s) throws SQLException {
-		int i = 0;
 		String sql = "INSERT INTO users(Full_Name,email,password,phone_number,created_time) VALUES(?,?,?,?,?);";
 		try (PreparedStatement stmt = connection.prepareStatement(sql)) {
 			stmt.setString(1, s.getFullName());
@@ -28,24 +27,22 @@ public class UserDao implements AutoCloseable {
 			stmt.setString(3, s.getPassword());
 			stmt.setString(4, s.getPhoneNumber());
 			stmt.setTimestamp(5, new Timestamp(s.getCreated_time().getTime()));
-			i = stmt.executeUpdate();
+			return stmt.executeUpdate();
 		}
-		return i;
 	}
 
 	public User login(String email, String password) throws SQLException {
 		query = "select * from users where email =? and password = ?";
-		User s = null;
+		User user = null;
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setString(1, email);
 			stmt.setString(2, password);
 			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				s = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
+			 while(rs.next())
+				 user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getDate(6));
-			}
 		}
-		return s;
+		return user;
 	}
 
 	public List<User> allUsers() throws SQLException {
@@ -63,16 +60,16 @@ public class UserDao implements AutoCloseable {
 	}
 	public String Users(int id) throws SQLException {
 		query = "select * from users where id = ?";
-	    String list = null;
+		String name = null;
 		try (PreparedStatement stmt = connection.prepareStatement(query)) {
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				list = rs.getString(2);
+			while(rs.next())
+			  name = rs.getString(2);
 			}
-		}
-		return list;
+		return name;
 	}
+	
 	@Override
 	public void close() throws Exception {
 		connection.close();
