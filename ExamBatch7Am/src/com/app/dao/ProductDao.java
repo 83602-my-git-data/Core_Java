@@ -11,7 +11,7 @@ import com.app.pojos.Product;
 import com.app.pojos.Seller;
 import com.app.utils.DbUtil;
 
-public class ProductDao {
+public class ProductDao implements AutoCloseable{
      private Connection connection;
      private String query;
      
@@ -80,6 +80,13 @@ public class ProductDao {
 				}
 			 return list;
 			}
+	}
+
+
+	@Override
+	public void close() throws Exception {
+		connection.close();
+		
 	}
 	
 }
